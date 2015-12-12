@@ -1,0 +1,35 @@
+{
+	"ImportPath": "github.com/joshrendek/ghforkaudit",
+	"GoVersion": "go1.5",
+	"Deps": [
+		{
+			"ImportPath": "github.com/fatih/color",
+			"Comment": "v0.1-8-g76d4231",
+			"Rev": "76d423163af754ff6423d2d9be0057fbf03c57c2"
+		},
+		{
+			"ImportPath": "github.com/google/go-github/github",
+			"Rev": "44b1ede22d71e26fa5d7af7a50204f7e6daadfc8"
+		},
+		{
+			"ImportPath": "github.com/google/go-querystring/query",
+			"Rev": "547ef5ac979778feb2f760cdb5f4eae1a2207b86"
+		},
+		{
+			"ImportPath": "github.com/mattn/go-isatty",
+			"Rev": "7fcbc72f853b92b5720db4a6b8482be612daef24"
+		},
+		{
+			"ImportPath": "github.com/shiena/ansicolor",
+			"Rev": "d445752f6f66f9cd987722f109149f6799cdf1de"
+		},
+		{
+			"ImportPath": "golang.org/x/net/context",
+			"Rev": "d46df1aba1c84278851452caf6b455d9139859de"
+		},
+		{
+			"ImportPath": "golang.org/x/oauth2",
+			"Rev": "2baa8a1b9338cf13d9eeb27696d761155fa480be"
+		}
+	]
+}
