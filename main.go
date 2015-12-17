@@ -38,13 +38,26 @@ func main() {
 
 	client := github.NewClient(tc)
 
-	// list all repositories for the authenticated user
-	repos, _, err := client.Repositories.ListByOrg(org, nil)
-	if err != nil {
-		panic(err)
+	opt := &github.RepositoryListByOrgOptions{
+		ListOptions: github.ListOptions{PerPage: 10},
 	}
 
 	repositories := []repoInfo{}
+	repos := []github.Repository{}
+
+	for {
+		reps, resp, err := client.Repositories.ListByOrg(org, opt)
+		if err != nil {
+			panic(err)
+		}
+
+		repos = append(repos, reps...)
+
+		if resp.NextPage == 0 {
+			break
+		}
+		opt.ListOptions.Page = resp.NextPage
+	}
 
 	for _, r := range repos {
 		name := *r.Name
@@ -64,7 +77,6 @@ func main() {
 			}
 		}
 	}
-
 	table := termtables.CreateTable()
 	table.AddHeaders("Repository", "URL", "Forks", "Users")
 	for _, r := range repositories {
